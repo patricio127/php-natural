@@ -1,0 +1,9 @@
+* CARRERA: Diseño web
+* MATERIA: Programación 2
+* COMISIÓN:A 
+* TURNO: Noche
+* AÑO: 2021
+* CUATRIMESTRE: Tercero
+* DOCENTE: GALLINO Santiago
+* ALUMNO: HUANG Patricio
+* CARÁCTER DE ENTREGA: 2do parcial
