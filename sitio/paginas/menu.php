@@ -17,13 +17,12 @@ $productos = $repo->all($busqueda);
 <section id="menu">
     <h1>Catálogo del producto</h1>
     <div>
-        <form action="index.php" method="get">
+        <form action="index.php" method="get" class="buscar d-flex">
             <input type="hidden" name="s" value="menu">
             <div>
-                <label for="buscar">Buscar</label>
-                <input type="search" name="buscar" id="buscar" value="<?= $buscar; ?>">
+                <input class="form-control me-2" type="search" name="buscar" id="buscar" value="<?= $buscar; ?>" placeholder="Buscar productos">
             </div>
-            <button type="submit">Buscar</button>
+            <button class="btn btn-outline-success" type="submit">Buscar</button>
         </form>
     </div>
     <div class="row" >
@@ -57,6 +56,10 @@ $productos = $repo->all($busqueda);
                         </picture>
                     </article>
                 </a>
+                <form action="acciones/item-carrito-agregar.php" method="post" class="form-item-agregar">
+                    <input type="hidden" name="producto_id" value="<?= $producto->getProductoId();?>">
+                    <button class="btn">Agregar al carrito</button>
+                </form>
             </div>
             
         <?php
@@ -64,7 +67,7 @@ $productos = $repo->all($busqueda);
         ?>
         <?php
         if($repo->isPaginacionHabilitada() && $repo->getPaginacionTotalPaginas() > 1):?>
-            <div>
+            <div class="paginacion">
                 <p>Páginas</p>
                 <ul>
                 <?php 

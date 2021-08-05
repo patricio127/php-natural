@@ -14,6 +14,12 @@ $SECCIONES_HOME =
     'contacto'=> [
         'title' => 'Contactanos',
     ],
+    'carrito'=> [
+        'title' => 'Carrito',
+    ],
+    'detalle-pedido'=> [
+        'title' => 'Detalle del pedido',
+    ],
     'consulta-enviada'=> [
         'title' => 'Gracias por contactarnos',
     ],

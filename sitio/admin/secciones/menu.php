@@ -3,14 +3,37 @@
  * @var PDO $db;
  */
 require_once __DIR__ . '/../../clases/ProductoRepository.php';
+$buscar = $_GET['buscar'] ?? null;
+$busqueda = [];
+if($buscar) {
+    $busqueda['buscar'] = $buscar;
+}
+$paginaActual = (int) ($_GET['p'] ?? 1);
+
 $repo = new ProductoRepository($db);
-$productos = $repo->all();
+$repo->paginacionHabilitar();
+$repo->setPaginacionPagina($paginaActual);
+$productos = $repo->all($busqueda);
 ?>
 <section id="admin">
     <h1>Administración de Productos</h1>
-    <div id="admin-agregar">
-        <a href="index.php?s=producto-nuevo"><span></span> Agregar</a>
+    <div id="interaccion">
+        <div>
+            <form action="index.php" method="get" class="buscar d-flex">
+                <input type="hidden" name="s" value="menu">
+                <div>
+                    <input class="form-control me-2" type="search" name="buscar" id="buscar" value="<?= $buscar; ?>" placeholder="Buscar productos">
+                </div>
+                <button class="btn btn-outline-success" type="submit">Buscar</button>
+            </form>
+        </div>
+        <div id="admin-agregar">
+            <a href="index.php?s=producto-nuevo"><span></span> Agregar</a>
+        </div>
     </div>
+    <?php
+    if(count($productos) > 0):
+        ?>
     <table>
         <thead class="container">
             <tr>
@@ -51,6 +74,44 @@ $productos = $repo->all();
             endforeach;?>
         </tbody>
     </table>
+    <?php
+        if($repo->isPaginacionHabilitada() && $repo->getPaginacionTotalPaginas() > 1):?>
+            <div class="paginacion">
+                <p>Páginas</p>
+                <ul>
+                <?php 
+                    for($p = 1; $p <= $repo->getPaginacionTotalPaginas(); $p ++): ?>
+                        <li>
+                            <?php
+                            if($p !== $paginaActual):
+                            ?>
+                                <a href="index.php?s=menu&buscar=<?= $buscar; ?>&p=<?= $p; ?>">
+                                    <?= $p; ?>
+                                </a>
+                            <?php
+                            else:
+                            ?>
+                                <span><?= $p; ?></span>
+                            <?php
+                            endif;
+                            ?>
+                            
+                        </li>
+                    <?php
+                    endfor;
+                ?>
+                </ul>
+            </div>
+        <?php
+        endif;
+        ?> 
+        <?php
+        else:
+        ?> 
+            <p>No se encontraron resultados para la búsqueda de "<?= $buscar; ?>"</p>
+        <?php
+        endif;
+        ?>
     <div class="modal" tabindex="-1" id="modal">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -67,6 +128,7 @@ $productos = $repo->all();
             </div>
         </div>
     </div>
+    
 </section>
 <script>
    

@@ -55,6 +55,7 @@ unset($_SESSION['status_exito'], $_SESSION['status_error']);
                     <li class="nav-item"><a class="nav-link" href="index.php">INICIO</a></li>
                     <li class="nav-item"><a class="nav-link" href="index.php?s=menu">MENU</a></li>
                     <li class="nav-item"><a class="nav-link" href="index.php?s=contacto">CONTACTO</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.php?s=carrito">CARRITO</a></li>
                     <?php
                     if(!$autenticacion->autenticado()):?>
                     <li class="nav-item"><a class="nav-link" href="index.php?s=iniciar-sesion">INICIAR SESION</a></li>

@@ -14,6 +14,10 @@ $SECCIONES_ADMIN =
         'title' => 'Administración de Productos',
         'autenticacion' => true,
     ],
+    'pedidos'=> [
+        'title' => 'Pedidos',
+        'autenticacion' => true,
+    ],
     'producto-nuevo'=> [
         'title' => 'Agregar Productos',
         'autenticacion' => true,

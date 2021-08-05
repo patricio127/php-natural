@@ -61,6 +61,7 @@ unset($_SESSION['status_exito'], $_SESSION['status_error']);
                 <ul class="navbar-nav">
                     <li class="nav-item"><a class="nav-link" href="index.php">INICIO</a></li>
                     <li class="nav-item"><a class="nav-link" href="index.php?s=menu">MENU</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.php?s=pedidos">PEDIDOS</a></li>
                     <li class="nav-item"><a class="nav-link" href="acciones/logout.php">CERRAR SESION</a></li>
                 </ul>
             </div>
