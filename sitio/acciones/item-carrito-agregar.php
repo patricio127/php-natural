@@ -13,13 +13,19 @@ if(!$auth->autenticado()) {
     exit;
 }
 
-
 $producto_id = $_POST['producto_id'];
 $cantidad = 1;
 $usuario_id = $auth->getUsuario()->getUsuarioId();
 
 $repo = new CarritoRepository($db);
-$exito = $repo->create(array("cantidad"=>$cantidad, "producto_id"=>$producto_id, "usuario_id"=>$usuario_id));
+$item = $repo->getByUserIdAndProductId($usuario_id, $producto_id);
+$exito = false;
+
+if($item){
+    $exito = $repo->update($item->getId(),$item->getCantidad()+1);
+} else{
+    $exito = $repo->create(array("cantidad"=>$cantidad, "producto_id"=>$producto_id, "usuario_id"=>$usuario_id));
+}
 
 if($exito) {
     $_SESSION['status_exito'] = '<div class="correcto"><p>El producto fue agregado al carrito.</p></div>';

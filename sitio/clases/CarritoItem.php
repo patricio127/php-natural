@@ -2,10 +2,13 @@
 class CarritoItem {
     protected $id;
     protected $cantidad;
+    protected $usuarios_usuario_id;
     protected $producto_id;
     protected $nombre;
     protected $descripcion;
     protected $precio;
+    protected $imagen;
+    protected $imagen_descripcion;
 
     /**
      * Get the value of precio
@@ -111,6 +114,66 @@ class CarritoItem {
      */ 
     public function setId($id){
         $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of imagen_descripcion
+     */ 
+    public function getImagenDescripcion()
+    {
+        return $this->imagen_descripcion;
+    }
+
+    /**
+     * Set the value of imagen_descripcion
+     *
+     * @return  self
+     */ 
+    public function setImagenDescripcion($imagen_descripcion)
+    {
+        $this->imagen_descripcion = $imagen_descripcion;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of imagen
+     */ 
+    public function getImagen()
+    {
+        return $this->imagen;
+    }
+
+    /**
+     * Set the value of imagen
+     *
+     * @return  self
+     */ 
+    public function setImagen($imagen)
+    {
+        $this->imagen = $imagen;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of usuarios_usuario_id
+     */ 
+    public function getUsuarios_usuario_id()
+    {
+        return $this->usuarios_usuario_id;
+    }
+
+    /**
+     * Set the value of usuarios_usuario_id
+     *
+     * @return  self
+     */ 
+    public function setUsuarios_usuario_id($usuarios_usuario_id)
+    {
+        $this->usuarios_usuario_id = $usuarios_usuario_id;
 
         return $this;
     }

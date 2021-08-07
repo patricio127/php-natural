@@ -526,8 +526,9 @@ footer > p:last-child{
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 .admin-imagen {
-    text-align: center;
+    
     max-width: 100px;
+    padding: 5px;
 }
 .admin-imagen img{
     height: 100px;
@@ -543,6 +544,7 @@ table {
 .modal-body p{
     color: rgba(0, 0, 0);
 }
+
 td .btn {
     border: 1px solid #2a505a;
     margin-right: 5px;
@@ -550,6 +552,21 @@ td .btn {
 }
 td .btn:hover{
     color: #fff;
+}
+.form-item-agregar {
+    margin: 0 auto 20px;
+}
+#detalle-producto .form-item-agregar{
+    margin: 20px 0;
+}
+form .btn{
+    background-color: #2a505a;
+    color: #fff;
+}
+form .btn:hover{
+    background-color: #fff;
+    color: #2a505a;
+    border: 1px solid #2a505a;
 }
 .form-eliminar button, #confirmar-eliminar{
     background-color: rgba(253, 25, 25, 0.849);
@@ -631,4 +648,7 @@ td .btn:hover{
 }
 .paginacion ul li {
     margin: 0 10px;
+}
+#carrito {
+    width: 100%;
 }

@@ -39,4 +39,32 @@ class CarritoRepository {
         $exito = $stmt->execute([$id]);
         return $exito;
     }
+
+    public function update(int $id, int $cantidad): bool {
+        $query = "UPDATE items_carrito 
+                SET cantidad  = :cantidad
+                WHERE id = :id";
+
+        $stmt = $this->db->prepare($query);
+        $exito = $stmt->execute([
+                'id'        => $id,
+                'cantidad'  => $cantidad,
+        ]);
+        return $exito;
+    }
+
+    public function getByUserIdAndProductId(int $usuario_id, int $producto_id, ): CarritoItem {
+        $query = "SELECT * FROM items_carrito
+                WHERE usuarios_usuario_id = :usuario_id AND productos_producto_id = :producto_id";
+    
+        $stmt = $this->db->prepare($query);
+        $stmt->execute([
+            'usuario_id'  => $usuario_id,
+            'producto_id' => $producto_id,
+        ]);
+    
+        $stmt->setFetchMode(PDO::FETCH_CLASS, CarritoItem::class);
+        $itemsCarrito = $stmt->fetch();
+        return $itemsCarrito;
+    }
 }

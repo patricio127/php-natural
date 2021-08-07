@@ -122,8 +122,8 @@ $productos = $repo->all($busqueda);
                 <p>Esta seguro de eliminar <span id="modal-nombre-producto"></span>?</p>
             </div>
             <div class="modal-footer" >
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="cancelar-eliminar">Cancelar</button>
                 <button type="button" class="btn btn-primary" id="confirmar-eliminar">Eliminar</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="cancelar-eliminar">Cancelar</button>
             </div>
             </div>
         </div>

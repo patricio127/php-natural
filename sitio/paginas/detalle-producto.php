@@ -29,6 +29,10 @@ $producto = $repo->getByPk($id);
                     ?>
                 </div> 
                 <p>precio: $<?= $producto->getPrecio();?></p>
+                <form action="acciones/item-carrito-agregar.php" method="post" class="form-item-agregar">
+                    <input type="hidden" name="producto_id" value="<?= $producto->getProductoId();?>">
+                    <button class="btn">Agregar al carrito</button>
+                </form>
             </div>  
         </div>
         <div id="detalle-descripcion">

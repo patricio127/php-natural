@@ -54,12 +54,13 @@ $productos = $repo->all($busqueda);
                             <source srcset="<?='img/' . $producto->getImagen();?>" class="card-img-top" media="(min-width: 780px)"> 
                             <img src="<?='img/' . $producto->getImagen();?>" class="card-img-top" alt="<?= $producto->getImagenDescripcion();?>">
                         </picture>
+                        <form action="acciones/item-carrito-agregar.php" method="post" class="form-item-agregar">
+                            <input type="hidden" name="producto_id" value="<?= $producto->getProductoId();?>">
+                            <button class="btn">Agregar al carrito</button>
+                        </form>
                     </article>
                 </a>
-                <form action="acciones/item-carrito-agregar.php" method="post" class="form-item-agregar">
-                    <input type="hidden" name="producto_id" value="<?= $producto->getProductoId();?>">
-                    <button class="btn">Agregar al carrito</button>
-                </form>
+                
             </div>
             
         <?php
