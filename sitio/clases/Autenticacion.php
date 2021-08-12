@@ -46,6 +46,6 @@ class Autenticacion {
     public function getUsuario(): ?Usuario {
         if(!$this->autenticado()) return null;
         $repo = new UsuarioRepository($this->db);
-        return $repo->getByPk($_SESSION['id']);
+        return $repo->getById($_SESSION['id']);
     }
 }

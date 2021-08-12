@@ -16,6 +16,7 @@ $SECCIONES_HOME =
     ],
     'carrito'=> [
         'title' => 'Carrito',
+        'autenticacion' => true,
     ],
     'detalle-pedido'=> [
         'title' => 'Detalle del pedido',
@@ -32,5 +33,8 @@ $SECCIONES_HOME =
     ],
     'registrarse'=> [
         'title' => 'Registrate',
+    ],
+    'gracias'=> [
+        'title' => 'Gracias por su compra',
     ],
 ];

@@ -100,7 +100,7 @@ $productos = $repo->all($busqueda);
         <?php
         else:
         ?> 
-            <p>No se encontraron resultados para la búsqueda de "<?= $buscar; ?>"</p>
+            <p class="mensaje-pagina">No se encontraron resultados para la búsqueda de "<?= $buscar; ?>"</p>
         <?php
         endif;
         ?>

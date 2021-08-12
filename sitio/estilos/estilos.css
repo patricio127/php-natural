@@ -36,7 +36,7 @@ p, th {
 .bg-category{
     background-color: #2a505a !important;
 }
-table th:last-child {
+#admin table th:last-child {
     text-align: center;
 }
 nav > div {
@@ -56,9 +56,7 @@ nav > a:first-of-type{
 .nav-item {
     padding: 0 40px;
 }
-img {
-    max-width: 100%;
-}
+
 h2{
     padding: 100px 0 0;
     text-align: center;
@@ -290,6 +288,15 @@ span.usuario-icono {
     h2 {
         padding: 0;
     }
+    #perfil {
+        flex-direction: column;
+    }
+    #interaccion {
+        flex-direction: column;
+    }
+    #cantidad {
+        width: 30vw;
+    }
 }
 
 #detalle-producto article div h2{
@@ -378,22 +385,22 @@ span.usuario-icono {
         max-width: 100%;
     }
 }
-#error h2 {
+.error h2 {
     display: none;
 }
-#error img {
+.error img {
     width: 100%;
 }
-#error p, #error ul {
+.error p, .error ul {
     padding: 2rem;
 }
-#error ul {
+.error ul {
     padding-bottom: 10%;
 }
-#error li {
+.error li {
     list-style-type: none;
 }
-#error >p:first-of-type {
+.error >p:first-of-type {
     text-align: center;
     font-size: 2em;
 }
@@ -442,6 +449,9 @@ footer > p:last-child{
     footer > div {
         padding: 0 10vw;
     }
+    img {
+        max-width: 100%;
+    }
 }
 @media (min-width:1024px) {
     footer > div {
@@ -488,7 +498,7 @@ footer > p:last-child{
     margin: 50px auto 0;
     color: #2a505a;
 }
-#panel-admin div a:hover, td a:hover{
+#panel-admin div a:hover, #admin td a:hover{
     background-color: #2a505a;
     color: #fff !important;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
@@ -526,7 +536,6 @@ footer > p:last-child{
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 .admin-imagen {
-    
     max-width: 100px;
     padding: 5px;
 }
@@ -540,6 +549,7 @@ footer > p:last-child{
 }
 table {
     margin-bottom: 50px;
+    width: 100%;
 }
 .modal-body p{
     color: rgba(0, 0, 0);
@@ -553,17 +563,21 @@ td .btn {
 td .btn:hover{
     color: #fff;
 }
+td.precio, th.precio {
+    text-align: right;
+    padding-right: 30px;
+}
 .form-item-agregar {
     margin: 0 auto 20px;
 }
 #detalle-producto .form-item-agregar{
     margin: 20px 0;
 }
-form .btn{
+form .btn, #gracias a.btn, #historial a.btn{
     background-color: #2a505a;
     color: #fff;
 }
-form .btn:hover{
+form .btn:hover, #gracias a.btn:hover, #historial a.btn:hover{
     background-color: #fff;
     color: #2a505a;
     border: 1px solid #2a505a;
@@ -650,5 +664,66 @@ form .btn:hover{
     margin: 0 10px;
 }
 #carrito {
+    width: 100%;
+}
+#cantidad {
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid #2a505a;
+    margin-right: 10px;
+    font-size: 20px;
+    padding: 5px 0;
+}
+#cantidad button {
+    border: none;
+    background-color: white;
+    width: 40px;
+}
+#check-out {
+    padding-bottom: 50px;
+}
+.mensaje-pagina {
+    font-size: 1.5em;
+    text-align: center;
+}
+#datos-perfil, #historial {
+    padding-bottom: 50px;
+    width: 100%;
+}
+#gracias div {
+    display: flex;
+    flex-direction: column;
+}
+#gracias img{
+    width: 200px;
+    height: 200px;
+    margin: 20px auto;
+}
+#gracias a{
+    width: 200px;
+    margin: 50px auto;
+    text-decoration: none;
+}
+#v-pills-tab {
+    margin-bottom: 50px;
+}
+#v-pills-tab button {
+    width: 200px;
+    margin: 0 20px;
+}
+#total p{
+    font-size: 2em;
+    text-align: center;
+}
+#realizar-pedido{
+    margin: 50px 0;
+    display: flex;
+    justify-content: center;
+}
+#historial{
+    border-collapse: separate;
+    border-spacing: 10px 10px;
+}
+#historial .estado{
     width: 100%;
 }

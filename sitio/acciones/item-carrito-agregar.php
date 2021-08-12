@@ -8,8 +8,8 @@ require_once __DIR__ . '/../boostrap/autoload.php';
 
 $auth = new Autenticacion($db);
 if(!$auth->autenticado()) {
-    $_SESSION['status_error'] = '<div class="erroneo">Se require iniciar sesion para realizar esta acción.</p></div>';
-    header("Location: index.php?s=iniciar-sesion");
+    $_SESSION['status_error'] = '<div class="erroneo"><p>Se require iniciar sesion para realizar esta acción.</p></div>';
+    header("Location: ../index.php?s=iniciar-sesion");
     exit;
 }
 

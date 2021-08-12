@@ -40,6 +40,14 @@ class CarritoRepository {
         return $exito;
     }
 
+    public function vaciar(int $usuario_id){
+        $query = "DELETE FROM items_carrito
+                WHERE usuarios_usuario_id = ?";
+        $stmt = $this->db->prepare($query);
+        $exito = $stmt->execute([$usuario_id]);
+        return $exito;
+    }
+
     public function update(int $id, int $cantidad): bool {
         $query = "UPDATE items_carrito 
                 SET cantidad  = :cantidad
@@ -53,7 +61,7 @@ class CarritoRepository {
         return $exito;
     }
 
-    public function getByUserIdAndProductId(int $usuario_id, int $producto_id, ): CarritoItem {
+    public function getByUserIdAndProductId(int $usuario_id, int $producto_id, ): CarritoItem|bool {
         $query = "SELECT * FROM items_carrito
                 WHERE usuarios_usuario_id = :usuario_id AND productos_producto_id = :producto_id";
     
@@ -67,4 +75,5 @@ class CarritoRepository {
         $itemsCarrito = $stmt->fetch();
         return $itemsCarrito;
     }
+
 }

@@ -1,6 +1,6 @@
 <section id="contacto">
     <h1>Contactanos</h1>
-    <p>No dudes en contactarnos y probar uno de nuestros deliciosos platos.</p>
+    <p class="mensaje-pagina">No dudes en contactarnos y probar uno de nuestros deliciosos platos.</p>
     <form action="index.php?s=consulta-enviada" class="container-fluid" method="post" >
         <div id="contacto-nombre">
             <div>

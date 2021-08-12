@@ -13,7 +13,7 @@
 ?>
 <section id="nuevo-prod">
     <h1>Agregar nuevo producto</h1>
-    <p>Completá el formulario</p>
+    <p class="mensaje-pagina">Completá el formulario</p>
     <form action="acciones/producto-crear.php" method="post" enctype="multipart/form-data">
         <div>
             <label for="nombre" class="form-label">Nombre del producto</label>

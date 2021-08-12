@@ -7,6 +7,11 @@ class Usuario {
     protected $password;
     protected $nombre;
     protected $apellido;
+    protected $telefono;
+    protected $calle;
+    protected $numero;
+    protected $codigo_postal;
+    protected $dpto;
 
     public function getUsuarioId():int {
         return $this->usuario_id;
@@ -55,4 +60,104 @@ class Usuario {
         $this->apellido = $apellido;
     }
 
+
+    /**
+     * Get the value of telefono
+     */ 
+    public function getTelefono()
+    {
+        return $this->telefono;
+    }
+
+    /**
+     * Set the value of telefono
+     *
+     * @return  self
+     */ 
+    public function setTelefono($telefono)
+    {
+        $this->telefono = $telefono;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of calle
+     */ 
+    public function getCalle()
+    {
+        return $this->calle;
+    }
+
+    /**
+     * Set the value of calle
+     *
+     * @return  self
+     */ 
+    public function setCalle($calle)
+    {
+        $this->calle = $calle;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of numero
+     */ 
+    public function getNumero()
+    {
+        return $this->numero;
+    }
+
+    /**
+     * Set the value of numero
+     *
+     * @return  self
+     */ 
+    public function setNumero($numero)
+    {
+        $this->numero = $numero;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of codigo_posta
+     */ 
+    public function getCodigo_postal()
+    {
+        return $this->codigo_postal;
+    }
+
+    /**
+     * Set the value of codigo_posta
+     *
+     * @return  self
+     */ 
+    public function setCodigo_postal($codigo_postal)
+    {
+        $this->codigo_postal = $codigo_postal;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of dpto
+     */ 
+    public function getDpto()
+    {
+        return $this->dpto;
+    }
+
+    /**
+     * Set the value of dpto
+     *
+     * @return  self
+     */ 
+    public function setDpto($dpto)
+    {
+        $this->dpto = $dpto;
+
+        return $this;
+    }
 }

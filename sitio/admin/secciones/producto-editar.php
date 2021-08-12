@@ -32,7 +32,7 @@
 ?>
 <section id="editar">
     <h1>Editar producto</h1>
-    <p>Modificá los datos del producto</p>
+    <p class="mensaje-pagina">Modificá los datos del producto</p>
     <form action="acciones/producto-editar.php" method="post" enctype="multipart/form-data">
         <input type="hidden" name="producto_id" value="<?= $_GET['id'];?>">
         <input type="hidden" name="imagen_actual" value="<?= $oldData['imagen_actual'];?>">

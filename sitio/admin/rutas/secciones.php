@@ -30,6 +30,10 @@ $SECCIONES_ADMIN =
         'title' => 'Ver detalle del producto',
         'autenticacion' => true,
     ],
+    'detalle-pedido'=> [
+        'title' => 'Ver detalle del pedido',
+        'autenticacion' => true,
+    ],
     'iniciar-sesion'=> [
         'title' => 'Ingresar',
     ],

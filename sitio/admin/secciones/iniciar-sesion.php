@@ -4,7 +4,7 @@ unset($_SESSION['oldData']);
 ?>
 <section class="iniciar-sesion">
     <h1>Ingresar al panel de administración</h1>
-    <p>Debes iniciar sesion para poder acceder al panel</p>
+    <p class="mensaje-pagina">Debes iniciar sesion para poder acceder al panel</p>
     <form action="acciones/login.php" method="post">
         <div>
             <label for="email" class="form-label">Email</label>
