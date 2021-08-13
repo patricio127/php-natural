@@ -11,7 +11,7 @@ require_once __DIR__ . '/../boostrap/autoload.php';
 require __DIR__ . '/rutas/secciones.php';
 
 //llamo la funcion para obtener las secciones
-$SECCIONES = $SECCIONES_ADMIN;
+$SECCIONES = $secciones_admin;
 
 //chequeo si existe la seccion
 $seccionActual = $_GET['s'] ?? 'inicio';
@@ -49,7 +49,7 @@ unset($_SESSION['status_exito'], $_SESSION['status_error']);
             require __DIR__ . "/secciones/" . $seccionActual . ".php";
         else:
         ?>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light mb-0">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light mb-0" id="navbar-nav">
             <?php
             if($autenticacion->rolAdmin()):?>
             <a class="navbar-brand" href="index.php"><h1 class="visually-hidden">Natural</h1></a>

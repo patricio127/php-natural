@@ -26,12 +26,12 @@ $items_carrito = $repo->getByUserId($usuario_id);
             <?php
             foreach($items_carrito as $item): ?>
             <tr>
-                <td class="col-2 admin-imagen"><img src="<?= 'img/' . $item->getImagen();?>" alt="<?= $item->getImagenDescripcion();?>"></td>
-                <td class="col-2"><?=$item->getNombre();?></td>
-                <td class="col-4"><?=$item->getDescripcion();?></td>
-                <td class="col-1 precio">$<?=$item->getPrecio();?></td>
-                <td class="col-1">
-                    <div id="cantidad">
+                <td class="col-sm-12 col-md-2 admin-imagen"><img src="<?= 'img/' . $item->getImagen();?>" alt="<?= $item->getImagenDescripcion();?>"></td>
+                <td class="col-sm-12 col-md-2"><?=$item->getNombre();?></td>
+                <td class="col-sm-12 col-md-4"><?=$item->getDescripcion();?></td>
+                <td class="col-sm-12 col-md-1 precio">$<?=$item->getPrecio();?></td>
+                <td class="col-sm-12 col-md-1">
+                    <div class="cantidad">
                         <?php if($item->getCantidad() > 1): ?>
                             <form action="acciones/item-carrito-cant.php" method="post" class="form-item-cant">
                                 <input type="hidden" name="id" value="<?= $item->getId();?>">
@@ -53,8 +53,8 @@ $items_carrito = $repo->getByUserId($usuario_id);
                         <?php endif; ?>
                     </div>
                 </td>
-                <td class="col-1 precio">$<?=($item->getPrecio())*($item->getCantidad());?></td>
-                <td class="col-1">
+                <td class="col-sm-12 col-md-1 precio"><span>Subtotal: </span> $<?=($item->getPrecio())*($item->getCantidad());?></td>
+                <td class="col-sm-12 col-md-1">
                     <form action="acciones/item-carrito-quitar.php" method="post" class="form-item-quitar" data-nombre="<?= $item->getNombre();?>">
                         <input type="hidden" name="id" value="<?= $item->getId();?>">
                         <button class="btn">Quitar</button>
@@ -63,20 +63,24 @@ $items_carrito = $repo->getByUserId($usuario_id);
             </tr>
             <?php
             endforeach;?>
-            <td colspan="4"></td>
-            <td>Subtotal: </td>
-            <?php
-                $subTotal = 0;
-                foreach($items_carrito as $item) {
-                    $subtotalItem  = $item->getPrecio() * $item->getCantidad() ;
-                    $subTotal = $subTotal + $subtotalItem;
-                }
-                $monto_envio = 200;
-            ?>
-            <td class="precio">$ <?= $subTotal ;?></td>
+            <tr>
+                <td colspan="4"></td>
+                <td>Subtotal: </td>
+                <?php
+                    $subTotal = 0;
+                    foreach($items_carrito as $item) {
+                        $subtotalItem  = $item->getPrecio() * $item->getCantidad() ;
+                        $subTotal = $subTotal + $subtotalItem;
+                    }
+                    $monto_envio = 200;
+                ?>
+                <td class="precio">$ <?= $subTotal ;?></td>
+                <td></td>
+            </tr>
+            
         </tbody>
     </table>
-    <div  id="check-out">
+    <div  id="check-out" class="container-fluid">
         <form action="acciones/checkout.php" method="post" class="row">
             <div class="col-md-12 col-lg-6">
                 <div class="row my-3">

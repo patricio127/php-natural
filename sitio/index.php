@@ -8,7 +8,7 @@ require_once __DIR__ . '/boostrap/autoload.php';
 require __DIR__ . '/funciones/secciones.php';
 
 //llamo la funcion para obtener las secciones
-$SECCIONES = $SECCIONES_HOME;
+$SECCIONES = $secciones_home;
 
 //chequeo si existe la seccion
 $seccionActual = $_GET['s'] ?? 'inicio';
@@ -45,7 +45,7 @@ unset($_SESSION['status_exito'], $_SESSION['status_error']);
             require __DIR__ . "/paginas/" . $seccionActual . ".php";
         else:
         ?>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light mb-0">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light mb-0" id="navbar-nav">
             <a class="navbar-brand" href="index.php"><h1 class="visually-hidden">Natural</h1></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="true" aria-label="Expandir el menu">
                 <span class="navbar-toggler-icon"></span>

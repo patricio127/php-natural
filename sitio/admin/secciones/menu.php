@@ -50,19 +50,19 @@ $productos = $repo->all($busqueda);
             <?php
             foreach($productos as $producto): ?>
             <tr>
-                <td class="col-1"><?=$producto->getProductoId();?></td>
-                <td class="col-1 admin-imagen"><img src="<?= '../img/' . $producto->getImagen();?>" alt="<?= $producto->getImagenDescripcion();?>"></td>
-                <td class="col-2"><?=$producto->getNombre();?></td>
-                <td class="col-2"><?php 
+                <td class="col-sm-12 col-md-1"><?=$producto->getProductoId();?></td>
+                <td class="col-sm-12 col-md-1 admin-imagen"><img src="<?= '../img/' . $producto->getImagen();?>" alt="<?= $producto->getImagenDescripcion();?>"></td>
+                <td class="col-sm-12 col-md-2"><?=$producto->getNombre();?></td>
+                <td class="col-sm-12 col-md-2"><?php 
                     $productoCompleto = $repo->getByPk($producto->getProductoId(), true);
                     foreach($productoCompleto->getCategorias() as $categoria): ?>
                         <?=$categoria->getNombre();?>
                     <?php
                     endforeach;
                 ?></td>
-                <td class="col-3"><?=$producto->getDescripcion();?></td>
-                <td class="col-1">$<?=$producto->getPrecio();?></td>
-                <td class="col-2 acciones">
+                <td class="col-sm-12 col-md-3"><?=$producto->getDescripcion();?></td>
+                <td class="col-sm-12 col-md-1">$<?=$producto->getPrecio();?></td>
+                <td class="col-sm-12 col-md-2 acciones">
                     <a class="btn" href="index.php?s=producto-editar&id=<?= $producto->getProductoId();?>">Editar</a>
                     <form action="acciones/producto-eliminar.php" method="post" class="form-eliminar" data-nombre="<?= $producto->getNombre();?>">
                         <input type="hidden" name="producto_id" value="<?= $producto->getProductoId();?>">
@@ -76,32 +76,32 @@ $productos = $repo->all($busqueda);
     </table>
     <?php
         if($repo->isPaginacionHabilitada() && $repo->getPaginacionTotalPaginas() > 1):?>
-            <div class="paginacion">
-                <p>Páginas</p>
-                <ul>
+            <nav aria-label="..." class="paginacion">
+                <ul class="pagination">
                 <?php 
-                    for($p = 1; $p <= $repo->getPaginacionTotalPaginas(); $p ++): ?>
-                        <li>
-                            <?php
-                            if($p !== $paginaActual):
-                            ?>
-                                <a href="index.php?s=menu&buscar=<?= $buscar; ?>&p=<?= $p; ?>">
-                                    <?= $p; ?>
-                                </a>
-                            <?php
-                            else:
-                            ?>
-                                <span><?= $p; ?></span>
-                            <?php
-                            endif;
-                            ?>
-                            
+                    for($p = 1; $p <= $repo->getPaginacionTotalPaginas(); $p ++): ?>    
+                        <?php
+                        if($p !== $paginaActual):
+                        ?>
+                        <li class="page-item">
+                            <a  href="index.php?s=menu&buscar=<?= $buscar; ?>&p=<?= $p; ?>" class="page-link ">
+                                <?= $p; ?>
+                            </a>
                         </li>
+                        <?php
+                        else:
+                        ?>
+                        <li class="page-item active" aria-current="page">
+                            <a class="page-link" href="#"><?= $p; ?></a>
+                        </li>
+                        <?php
+                        endif;
+                        ?>
                     <?php
                     endfor;
                 ?>
                 </ul>
-            </div>
+            </nav>
         <?php
         endif;
         ?> 

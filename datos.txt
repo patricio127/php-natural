@@ -6,4 +6,8 @@
 * CUATRIMESTRE: Tercero
 * DOCENTE: GALLINO Santiago
 * ALUMNO: HUANG Patricio
-* CARÁCTER DE ENTREGA: 2do parcial
+* CARÁCTER DE ENTREGA: FINAL
+- cuenta admin: shopveggie0@gmail.com
+- contaseña admin : 123456
+- cuenta usuario : usuario@gmail.com
+- contraseña usuario : 123456

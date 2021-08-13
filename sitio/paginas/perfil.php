@@ -10,7 +10,7 @@ $repoHistorial->setPaginacionPagina($paginaActual);
 $historial = $repoHistorial->getByUserId($auth->getUsuario()->getUsuarioId());
 
 ?>
-<section>
+<section class="container-fluid" id="perfil-section">
     <h1>Perfil de <?= $auth->getUsuario()->getEmail();?></h1>
     <p class="mensaje-pagina">Administra tu perfil</p>
 
@@ -27,7 +27,7 @@ $historial = $repoHistorial->getByUserId($auth->getUsuario()->getUsuarioId());
                 Mis pedidos
             </button>
         </div>
-        <div class="tab-content" id="datos-perfil">
+        <div class="tab-content container-fluid" id="datos-perfil">
             <div class="tab-pane fade <?= $tabActual == 'datos' ? 'show active' : '';?>" id="v-pills-datos" 
             role="tabpanel" aria-labelledby="datos-tab">
                 <form action="acciones/perfil-actualizar.php" method="post">
@@ -91,13 +91,13 @@ $historial = $repoHistorial->getByUserId($auth->getUsuario()->getUsuarioId());
                             foreach($historial as $item): ?>
                             
                             <tr>
-                                <td class="col-2"><?= $item->getFecha();?></td>
-                                <td class="col-1"><?= ($item->getDelivery()) ? "Delivery" : "Take Away";?></td>
-                                <td class="col-2 precio">$ <?=$item->getMonto_productos();?></td>
-                                <td class="col-2 precio">$ <?=$item->getMonto_envio();?></td>
-                                <td class="col-2 precio">$ <?=$item->getMonto_total();?></td>
-                                <td class="col-1 estado <?=($item->getCompletado()) ? "badge bg-success" : "badge bg-warning text-dark";?>"><?=($item->getCompletado()) ? "Completado" : "En proceso";?></td>
-                                <td class="col-2"><a href="index.php?s=detalle-pedido&id=<?= $item->getPedido_id();?>" class="btn">Ver detalle</a></td>
+                                <td class="col-sm-12 col-md-2"><?= $item->getFecha();?></td>
+                                <td class="col-sm-12 col-md-1"><?= ($item->getDelivery()) ? "Delivery" : "Take Away";?></td>
+                                <td class="col-sm-12 col-md-2 precio"><span>Productos:</span> $ <?=$item->getMonto_productos();?></td>
+                                <td class="col-sm-12 col-md-2 precio"><span>Envío:</span> $ <?=$item->getMonto_envio();?></td>
+                                <td class="col-sm-12 col-md-2 precio"><span>Total:</span> $ <?=$item->getMonto_total();?></td>
+                                <td class="col-sm-12 col-md-1 estado <?=($item->getCompletado()) ? "badge bg-success" : "badge bg-warning text-dark";?>"><?=($item->getCompletado()) ? "Completado" : "En proceso";?></td>
+                                <td class="col-sm-12 col-md-2"><a href="index.php?s=detalle-pedido&id=<?= $item->getPedido_id();?>" class="btn historial-ver-detalle">Ver detalle</a></td>
                             </tr>
                             
                         <?php
@@ -106,32 +106,36 @@ $historial = $repoHistorial->getByUserId($auth->getUsuario()->getUsuarioId());
                 </table>
                 <?php
                 if($repoHistorial->isPaginacionHabilitada() && $repoHistorial->getPaginacionTotalPaginas() > 1):?>
-                    <div class="paginacion">
-                        <p>Páginas</p>
-                        <ul>
+                    <nav aria-label="..." class="paginacion">
+                        <ul class="pagination">
                         <?php 
                             for($p = 1; $p <= $repoHistorial->getPaginacionTotalPaginas(); $p ++): ?>
-                                <li>
+                                
                                     <?php
                                     if($p !== $paginaActual):
                                     ?>
-                                        <a href="index.php?s=perfil&t=historial&p=<?= $p; ?>">
+                                    <li class="page-item">
+                                        <a href="index.php?s=perfil&t=historial&p=<?= $p; ?>" class="page-link ">
                                             <?= $p; ?>
                                         </a>
+                                    </li>
                                     <?php
                                     else:
                                     ?>
-                                        <span><?= $p; ?></span>
+                                    <li class="page-item active" aria-current="page">
+                                        <a class="page-link" href="#"><?= $p; ?></a>
+                                    </li>
                                     <?php
                                     endif;
                                     ?>
                                     
-                                </li>
+                                
+                                
                             <?php
                             endfor;
                         ?>
                         </ul>
-                    </div>
+                    </nav>
                 <?php
                 endif;
                 ?> 

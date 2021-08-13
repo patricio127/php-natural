@@ -6,11 +6,11 @@ unset($_SESSION['oldData']);
     <h1>Iniciar Sesión</h1>
     <p class="mensaje-pagina">Debes iniciar sesion para poder acceder al panel</p>
     <form action="acciones/login.php" method="post">
-        <div>
+        <div class="my-2">
             <label for="email" class="form-label">Email</label>
             <input type="email" name="email" class="form-control" id="email" value="<?=$oldData['email'] ?? '';?>">
         </div>
-        <div>
+        <div class="my-2">
             <label for="password" class="form-label">Contraseña</label>
             <input type="password" name="password" class="form-control" id="password">
         </div>

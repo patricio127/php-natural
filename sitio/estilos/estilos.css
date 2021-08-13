@@ -27,7 +27,7 @@ h1 {
     padding: 50px 0;
 }
 p, th {
-    color: #8fc0a9;
+    color: #447960;
     font-weight: 500;
     font-size: 1em;
     margin: 0;
@@ -53,27 +53,40 @@ nav > a:first-of-type{
     background-position: center;
 }
 
-.nav-item {
-    padding: 0 40px;
+li.nav-item a.nav-link{
+    display: flex;
+    height: 100px;
+    width: 150px;
+    align-items: center;
+    justify-content: center;
 }
 
-h2{
+#cards h2, #reseñas h2{
     padding: 100px 0 0;
     text-align: center;
 }
-#menu a {
+#intro div.row.contenedor {
+    background-color: #222;
+}
+#intro div.row.contenedor p{
+    color: #fff;
+}
+
+#menu .menu-producto a{
     text-decoration: none;
-    color: #8fc0a9;
+    color: #447960;
 }
 #menu article {
     margin: 2em auto;
+    max-width: 400px;
 }
 #menu article picture{
     order: -1;
-    height: 280px;
+    height: 320px;
     background: black;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 @media (max-width:468px){
     #menu article {
@@ -152,8 +165,8 @@ section {
 #reseñas {
     padding-bottom: 10%;
 }
-#reseñas div p{
-    color: #2a505a;
+#reseñas li p{
+    color: #447960;
 }
 #reseñas h2 {
     margin-bottom: 50px;
@@ -179,6 +192,10 @@ section {
     background-repeat: no-repeat;
     background-size: contain;
     margin: 20px auto;
+}
+#cards ul {
+    list-style-type: none;
+    padding: 0;
 }
 span#camion-icono{
     background-image: url(../iconos/camion.svg);
@@ -210,23 +227,27 @@ span.usuario-icono {
     color: #2a505a;
     font-size: 2em;
 }
-#reseñas > div > div {
+#reseñas > ul {
+    padding: 0;
+}
+#reseñas > ul > li {
     border-radius: 10px;
     height: 350px;
     margin: auto;
     padding-bottom: 20px;
+    list-style-type: none;
 }
-#reseñas > div > div >div.card {
+#reseñas > ul > li >div.card {
     height: 100%;
 }
-#reseñas div.row {
+#reseñas ul.row {
     justify-content: center;
 }
-#reseñas div div.card:hover {
+#reseñas li div.card:hover {
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
-#detalle-producto h1, #detalle-producto article {
-    padding: 50px 0;
+#detalle-producto article {
+    padding: 0 0 50px 0;
 }
 #detalle-producto h2 {
     text-align: start;
@@ -255,6 +276,9 @@ span.usuario-icono {
 }
 #detalle-imagen {
     width: 25vw;
+}
+.precio span {
+    display: none;
 }
 @media(max-width: 991px) and (min-width: 468px){
     #detalle-info {
@@ -294,19 +318,37 @@ span.usuario-icono {
     #interaccion {
         flex-direction: column;
     }
-    #cantidad {
-        width: 30vw;
+    .buscar{
+        justify-content: center;
+    }
+    #check-out form {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .precio span {
+        display: inline-block;
+    }
+    #intro div.row.contenedor {
+        padding-top: 20px;
+    }
+    #navbar-nav button{
+        margin-right: 20px;
+    }
+    
+    li.nav-item a.nav-link{
+        height: 50px;
+        width: 100%;
     }
 }
 
 #detalle-producto article div h2{
-    color: #8fc0a9;
+    color: #447960;
     margin-bottom: 10px;
     font-size: 2em;
 }
 #detalle-info > p {
     font-size: 2em;
-    margin-top: 50px;
+    margin-top: 20px;
 }
 #detalle-descripcion {
     padding-top: 50px;
@@ -316,25 +358,36 @@ span.usuario-icono {
 #detalle-descripcion > p{
     font-size: 1.5em;
     width: 100%;
-    padding-left: 190px;
 }
 #detalle-descripcion div{
-    padding: 10px;
-    width: 50%;
-    border: 1px solid #000;
+    width: 100%;
 }
-
+.menu-producto {
+    position: relative;
+}
+.menu-producto .form-item-agregar{
+    position: absolute;
+    right: 30px;
+    bottom: 30px;
+}
 @media (max-width: 468px) {
     #detalle-imagen {
         width: 80vw;
     }
-
-    #detalle-descripcion > p {
-        padding-left: 40px;
+    #perfil-section h1 {
+        font-size: 1.5em;
     }
-    #detalle-descripcion div {
-        width: 80%;
+    .historial-ver-detalle {
+        margin: 10px 0;
     }
+    
+    #detalle-pedido div {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+#perfil form {
+    padding-bottom: 20px;
 }
 #contacto{
     max-width: 900px;
@@ -427,17 +480,27 @@ footer > div {
     display: block;
     padding: 0 40px;
 }
+footer ul {
+    list-style-type: none;
+    padding: 0;
+}
 footer ul li {
-    color: #8fc0a9;
+    color: #fff;
     list-style: none;
 }
 footer ul li a{
-    color: #8fc0a9;
+    color: #fff;
     text-decoration: none;
+}
+footer p {
+    color: #fff;
 }
 footer ul li a img {
     width: 16px;
     height: 16px;
+}
+footer a:hover {
+    color: #447960;
 }
 footer > p:last-child{
     text-align: center;
@@ -540,7 +603,8 @@ footer > p:last-child{
     padding: 5px;
 }
 .admin-imagen img{
-    height: 100px;
+    max-height: 100px;
+    max-width: 100%;
 }
 .acciones {
     display: flex;
@@ -548,7 +612,6 @@ footer > p:last-child{
 
 }
 table {
-    margin-bottom: 50px;
     width: 100%;
 }
 .modal-body p{
@@ -629,7 +692,7 @@ form .btn:hover, #gracias a.btn:hover, #historial a.btn:hover{
 .input-error {
     color: red;
 }
-#legend {
+.legend {
     font-size: 1em;
 }
 @media (max-width:468px){
@@ -644,6 +707,9 @@ form .btn:hover, #gracias a.btn:hover, #historial a.btn:hover{
         flex-direction: column;
         padding: 30px;
     }
+    thead {
+        display: none;
+    }
 }
 .form-select {
     border: 1px solid #ced4da;
@@ -655,18 +721,13 @@ form .btn:hover, #gracias a.btn:hover, #historial a.btn:hover{
 }
 .paginacion {
     display: flex;
-}
-.paginacion ul{
-    display: flex;
-    list-style: none;
-}
-.paginacion ul li {
-    margin: 0 10px;
+    justify-content: space-around;
+    margin-top: 10px;
 }
 #carrito {
     width: 100%;
 }
-#cantidad {
+.cantidad {
     display: flex;
     justify-content: space-between;
     border: 1px solid #2a505a;
@@ -674,12 +735,13 @@ form .btn:hover, #gracias a.btn:hover, #historial a.btn:hover{
     font-size: 20px;
     padding: 5px 0;
 }
-#cantidad button {
+.cantidad button {
     border: none;
     background-color: white;
     width: 40px;
 }
 #check-out {
+    padding-top: 30px;
     padding-bottom: 50px;
 }
 .mensaje-pagina {
@@ -687,7 +749,6 @@ form .btn:hover, #gracias a.btn:hover, #historial a.btn:hover{
     text-align: center;
 }
 #datos-perfil, #historial {
-    padding-bottom: 50px;
     width: 100%;
 }
 #gracias div {
@@ -712,7 +773,7 @@ form .btn:hover, #gracias a.btn:hover, #historial a.btn:hover{
     margin: 0 20px;
 }
 #total p{
-    font-size: 2em;
+    font-size: 1.2em;
     text-align: center;
 }
 #realizar-pedido{

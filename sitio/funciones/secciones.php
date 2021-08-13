@@ -1,6 +1,6 @@
 <?php
 
-$SECCIONES_HOME =
+$secciones_home = 
 [
     'inicio'=> [
         'title' => 'Bienvenido a Natural sushi ¿Que vas a disfrutar hoy?',

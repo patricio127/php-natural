@@ -10,21 +10,20 @@ $pedido_items =  $pedido->getItems();
 ?>
 <section id="detalle-pedido">
     <h1>Detalle del pedido</h1>
-    <p>Fecha: <?= $pedido->getFecha();?></p>
-    <p>Tipo: <?= ($pedido->getDelivery()) ? "Delivery" : "Take Away";?></p>
-    <p>Monto productos: $ <?=$pedido->getMonto_productos();?></p>
-    <p>Monto envio: $ <?=$pedido->getMonto_envio();?></p>
-    <p>Monto Total: $ <?=$pedido->getMonto_total();?></p>
-    <p class="estado <?=($pedido->getCompletado()) ? "badge bg-success" : "badge bg-warning text-dark";?>">Estado: <?=($pedido->getCompletado()) ? "Completado" : "En proceso";?></p>
-    <?php
-        if($pedido->getCompletado() == 0): ?>
-    <form action="acciones/pedido-completar.php" method="post" class="form-pedido-completar">
-        <input type="hidden" name="id" value="<?= $pedido->getPedido_id();?>">
-        <input type="hidden" name="completado" value="1">
-        <button class="btn">Marcar como entregado</button>
-    </form>
-    <?php
-        endif; ?>
+    <div>
+        <p>Fecha: <?= $pedido->getFecha();?></p>
+        <p>Tipo: <?= ($pedido->getDelivery()) ? "Delivery" : "Take Away";?></p>
+        <p>Monto productos: $ <?=$pedido->getMonto_productos();?></p>
+        <p>Monto envio: $ <?=$pedido->getMonto_envio();?></p>
+        <p>Monto Total: $ <?=$pedido->getMonto_total();?></p>
+        <p class="estado <?=($pedido->getCompletado()) ? "badge bg-success" : "badge bg-warning text-dark";?>">Estado: <?=($pedido->getCompletado()) ? "Completado" : "En proceso";?></p>
+        <form action="acciones/pedido-completar.php" method="post" class="form-pedido-completar">
+            <input type="hidden" name="id" value="<?= $pedido->getPedido_id();?>">
+            <input type="hidden" name="completado" value="<?=($pedido->getCompletado() == 0) ? '1' : '0'?>">
+            <button class="btn"><?=($pedido->getCompletado() == 0) ? "Marcar como entregado" : "Marcar como en proceso"?></button>
+        </form>
+    </div>
+    
     <table>
         <thead class="container">
             <tr>
@@ -40,12 +39,12 @@ $pedido_items =  $pedido->getItems();
             <?php
             foreach($pedido_items as $item): ?>
             <tr>
-                <td class="col-2 admin-imagen"><img src="<?= '../img/' . $item->getImagen();?>" alt="<?= $item->getImagen_descripcion();?>"></td>
-                <td class="col-2"><?=$item->getNombre();?></td>
-                <td class="col-4"><?=$item->getDescripcion();?></td>
-                <td class="col-1 precio">$ <?=$item->getPrecio();?></td>
-                <td class="col-1"><?=$item->getCantidad();?></td>
-                <td class="col-2 precio">$ <?=($item->getPrecio())*($item->getCantidad());?></td>
+                <td class="col-sm-12 col-md-2 admin-imagen"><img src="<?= '../img/' . $item->getImagen();?>" alt="<?= $item->getImagen_descripcion();?>"></td>
+                <td class="col-sm-12 col-md-2"><?=$item->getNombre();?></td>
+                <td class="col-sm-12 col-md-4"><?=$item->getDescripcion();?></td>
+                <td class="col-sm-12 col-md-1 precio"><span>Precio: </span> $ <?=$item->getPrecio();?></td>
+                <td class="col-sm-12 col-md-1 precio"><span>Cantidad: </span> <?=$item->getCantidad();?></td>
+                <td class="col-sm-12 col-md-2 precio"><span>Subtotal: </span> $ <?=($item->getPrecio())*($item->getCantidad());?></td>
             </tr>
             <?php
             endforeach;

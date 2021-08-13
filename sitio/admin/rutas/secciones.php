@@ -4,7 +4,7 @@
  * @return string[][]
  */
 
-$SECCIONES_ADMIN =
+$secciones_admin =
 [
     'inicio'=> [
         'title' => 'Página Principal',
